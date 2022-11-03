@@ -9,7 +9,7 @@
     "main": "cd src && node main.js",
     "board": "cd tests && jest board.model.test.js --verbose --silent --runInBand",
     "cheese": "cd tests && jest cheese.model.test.js --verbose --silent --runInBand",
-    "user": "cd tests && jest cheese.model.test.js --verbose --silent --runInBand"
+    "user": "cd tests && jest user.model.test.js --verbose --silent --runInBand"
   },
   "repository": {
     "type": "git",

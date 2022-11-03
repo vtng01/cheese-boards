@@ -32,6 +32,7 @@ describe("Board model testing", () => {
         rating: rating,
       })
     ).toJSON();
+
     const data = await Board.findAndCountAll();
 
     expect(data.count).toBe(1);
