@@ -16,13 +16,14 @@ Board.init(
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     rating: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
         isInt: true,
+        min: 0,
+        max: 10,
       },
     },
   },
