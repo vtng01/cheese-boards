@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll",
-    "seed": "cd db && npm run seed.js",
-    "main": "cd src && npm run main.js"
+    "seed": "cd db && node run seed.js",
+    "main": "cd src && node run main.js"
   },
   "repository": {
     "type": "git",
