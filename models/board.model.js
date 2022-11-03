@@ -12,12 +12,18 @@ Board.init(
     },
     type: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     description: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     rating: {
       type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        isInt: true,
+      },
     },
   },
   { sequelize: db }
