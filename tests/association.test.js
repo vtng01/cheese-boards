@@ -65,6 +65,21 @@ describe("testing association between users and boards", () => {
 
     expect(result.constructor.name).toBe("TypeError");
   });
+
+  test("eager testing: user can be loaded with its boards", async () => {
+    let board1 = await Board.findByPk(1);
+    let board2 = await Board.findByPk(2);
+    let user1 = await User.findByPk(1);
+
+    await user1.addBoards([board1, board2]);
+
+    const result = await User.findByPk(1, {
+      include: Board,
+    });
+
+    expect(result.Boards[0].id).toBe(1);
+    expect(result.Boards[1].id).toBe(2);
+  });
 });
 
 describe("testing association between boards and cheeses", () => {
@@ -140,5 +155,35 @@ describe("testing association between boards and cheeses", () => {
     expect(cheese1Boards).toBe(2);
     expect(board1Cheeses[0].id).toBe(1);
     expect(board2Cheeses[0].id).toBe(1);
+  });
+
+  test("eager loading: board can be loaded with its cheeses", async () => {
+    let board1 = await Board.findByPk(1);
+    let cheese1 = await Cheese.findByPk(1);
+    let cheese2 = await Cheese.findByPk(2);
+
+    await board1.addCheeses([cheese1, cheese2]);
+
+    const result = await Board.findByPk(1, {
+      include: Cheese,
+    });
+
+    expect(result.Cheeses[0].id).toBe(1);
+    expect(result.Cheeses[1].id).toBe(2);
+  });
+
+  test("eager loading: cheese can be loaded with its boards", async () => {
+    let cheese1 = await Cheese.findByPk(1);
+    let board1 = await Board.findByPk(1);
+    let board2 = await Board.findByPk(2);
+
+    await cheese1.addBoards([board1, board2]);
+
+    const result = await Cheese.findByPk(1, {
+      include: Board,
+    });
+
+    expect(result.Boards[0].id).toBe(1);
+    expect(result.Boards[1].id).toBe(2);
   });
 });
