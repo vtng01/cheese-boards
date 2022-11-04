@@ -7,8 +7,8 @@
     "test": "jest --watchAll --verbose --silent --runInBand",
     "seed": "cd db && node seed.js",
     "main": "cd src && node main.js",
-    "model:test": "cd tests && jest models.test.js",
-    "association:test": "cd tests && jest association.test.js",
+    "test:models": "cd tests && jest models.test.js",
+    "test:relationships": "cd tests && jest association.test.js",
     "test:coverage": "jest --verbose --collect-coverage"
   },
   "repository": {

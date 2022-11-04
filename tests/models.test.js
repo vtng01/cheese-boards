@@ -187,6 +187,28 @@ describe("Board model testing", () => {
     });
     expect(result.constructor.name).toEqual("ValidationError");
   });
+
+  it("throw validation error on invalid rating entry: when rating < 0", async () => {
+    const result = await Board.create({
+      type: type,
+      description: description,
+      rating: -2,
+    }).catch((e) => {
+      return e;
+    });
+    expect(result.constructor.name).toEqual("ValidationError");
+  });
+
+  it("throw validation error on invalid rating entry: when rating > 0", async () => {
+    const result = await Board.create({
+      type: type,
+      description: description,
+      rating: 9001,
+    }).catch((e) => {
+      return e;
+    });
+    expect(result.constructor.name).toEqual("ValidationError");
+  });
 });
 
 describe("User model testing", () => {
