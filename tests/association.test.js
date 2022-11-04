@@ -47,7 +47,7 @@ describe("testing association between users and boards", () => {
     expect(board2User).toEqual(user1);
   });
 
-  test.only("multiple users cannot have the same board: addUsers function does not exist", async () => {
+  test("multiple users cannot have the same board: addUsers function does not exist", async () => {
     const board1 = await Board.findByPk(1);
     const user1 = await User.findByPk(1);
     const user2 = await User.findByPk(2);
