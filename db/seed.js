@@ -43,7 +43,7 @@ async function seed() {
     {
       id: 1,
       title: "cheeseTitleOne",
-      description: "cheeseDescriptionTwo",
+      description: "cheeseDescriptionOne",
     },
     {
       id: 2,
