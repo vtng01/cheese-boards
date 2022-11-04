@@ -7,9 +7,8 @@
     "test": "jest --watchAll --verbose --silent --runInBand",
     "seed": "cd db && node seed.js",
     "main": "cd src && node main.js",
-    "boardTest": "cd tests && jest board.model.test.js --verbose --silent --runInBand",
-    "cheeseTest": "cd tests && jest cheese.model.test.js --verbose --silent --runInBand",
-    "userTest": "cd tests && jest user.model.test.js --verbose --silent --runInBand"
+    "model:test": "cd tests && jest models.test.js",
+    "association:test": "cd tests && jest association.test.js"
   },
   "repository": {
     "type": "git",
