@@ -199,7 +199,7 @@ describe("Board model testing", () => {
     expect(result.constructor.name).toEqual("ValidationError");
   });
 
-  it("throw validation error on invalid rating entry: when rating > 0", async () => {
+  it("throw validation error on invalid rating entry: when rating > 10", async () => {
     const result = await Board.create({
       type: type,
       description: description,
